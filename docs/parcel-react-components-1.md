@@ -77,7 +77,7 @@ export function App() {
 - install react react-dom
 
 ```
-npm i react react-dom  
+npm i --save react react-dom  
 ```
 
 - Add `"start"` scripts to the `package.json` file  
