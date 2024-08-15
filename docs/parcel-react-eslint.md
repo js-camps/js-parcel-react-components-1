@@ -1,4 +1,4 @@
-# Parcel React Components 1
+# Parcel ReactApp with eslint
 
 ## Building a web app with Parcel
 
@@ -129,7 +129,60 @@ yarn-debug.log*
 yarn-error.log*
 ```
 
-## install less
-0
+## install ESLint version 8
 
-## install ESLint
+- show the versions list
+```
+npm show eslint versions --json
+```
+- install eslint@8.57.0
+```
+npm install --save-dev eslint@8.57.0 eslint-plugin-react
+```
+
+2. Create `.eslintrc.js`
+
+```
+module.exports = {
+  env: {
+    browser: true,
+    es2021: true,
+  },
+  extends: [
+    'eslint:recommended',
+    'plugin:react/recommended',
+  ],
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
+    },
+    ecmaVersion: 12,
+    sourceType: 'module',
+  },
+  settings: {
+    react: {
+      version: 'detect', // Automatically detect the React version
+    },
+  },
+  rules: {
+    'react/react-in-jsx-scope': 'off', // Disable the rule requiring React in scope
+    'quotes': ['error', 'single'], // Enforce single quotes
+  },
+};
+```
+
+3. Add ESLint Scripts to `package.json`
+
+```
+{
+  "scripts": {
+    "lint": "eslint 'src/**/*.{js,jsx}'"
+  }
+}
+```
+
+4. Run linx and fix
+
+```
+npm run lint -- --fix 
+```
